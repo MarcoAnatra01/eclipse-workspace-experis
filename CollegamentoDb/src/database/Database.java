@@ -15,12 +15,12 @@ import model.Order.orderStatus;
 
 
 public class Database {
-	private Connection connection;
-	private Statement stmt;
+	protected Connection connection;
+	protected Statement stmt;
 	
-	private String url = "jdbc:mysql://localhost:3306/experis";
-	private String user = "root";
-	private String psw = "Anatra";
+	protected String url = "jdbc:mysql://localhost:3306/experis";
+	protected String user = "root";
+	protected String psw = "Anatra";
 	
 	// lista con oggetti tipo Order creati tramite dati estratti dal db experis dalla tabella orders
 	ArrayList<Order> ordini = new ArrayList<>();
@@ -47,7 +47,7 @@ public class Database {
 	
 	
 	/**
-	 * esegue una query sulla tabella orders del db experis
+	 * esegue un select * sulla tabella orders del db experis
 	 * 
 	 * per ogni record che viene ritornato si crea un oggetto Order 
 	 * ogni oggetto Order viene inserito nell'ArrayList ordini
@@ -55,7 +55,7 @@ public class Database {
 	 */
 	public void testDb() {
 		try {
-			// eseguo l'update di un record
+			// update di un record
 			// stmt.executeUpdate("update orders set order_number = 'ORD021' where id = 22");
 			
 			// inserimento di un nuovo record
