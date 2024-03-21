@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import model.Order;
+import model.Order.orderStatus;
 
 
 public class Database {
@@ -61,21 +62,15 @@ public class Database {
 			// stmt.executeUpdate("insert INTO orders (order_number, today, quantity, total_price, order_status) values ('ORD0021', '2024-03-20 10:06:07', 2, 10.00, 'consegnato')");
 			
 			// l'oggetto ResultSet contiene le righe ritornate dalla query
-			ResultSet rs = stmt.executeQuery("select id, order_number, today, quantity, total_price from orders");
+			ResultSet rs = stmt.executeQuery("select id, order_number, today, quantity, total_price, order_status from orders");
 			
 			while(rs.next()) {
-				/*
-				System.out.println(rs.getInt("id") + " " + 
-								   rs.getString("order_number") + " " + 
-								   rs.getDate("today") + " " +
-								   rs.getInt("quantity") + " " +
-								   rs.getDouble("total_price"));
-								   */
-				Order ordine = new Order(rs.getInt("id"), rs.getString("order_number"), rs.getDate("today"), rs.getInt("quantity"), rs.getDouble("total_price"));
+				orderStatus stato = orderStatus.valueOf(rs.getString("order_status")); 
+				
+				Order ordine = new Order(rs.getInt("id"), rs.getString("order_number"), rs.getDate("today"), rs.getInt("quantity"), rs.getDouble("total_price"), stato);
 				
 				ordini.add(ordine);
 			}
-			
 		} catch (SQLException e) {
 			System.out.println("Errore nell'esecuzione della query");
 		}
