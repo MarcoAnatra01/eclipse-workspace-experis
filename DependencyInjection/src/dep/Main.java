@@ -15,14 +15,22 @@ package dep;
  *         essere più modulari e facili da testare. In questo esempio,
  *         ReadStringApp non è direttamente vincolata all'implementazione di
  *         ReadStringInterface, ma piuttosto riceve un'istanza di essa,
- *         rendendola più flessibile e facilmente sostituibile. Testabilità:
+ *         rendendola più flessibile e facilmente sostituibile. 
+ *         
+ *         Testabilità:
  *         Facilita il testing delle classi. È più semplice fornire
  *         implementazioni di dipendenze di test per l'oggetto in esame, poiché
  *         possono essere sostituite più facilmente attraverso l'iniezione di
- *         dipendenze. Riusabilità: Le classi diventano più riusabili poiché
+ *         dipendenze. 
+ *         
+ *         Riusabilità: 
+ *         Le classi diventano più riusabili poiché
  *         sono disaccoppiate dalle loro dipendenze concrete, consentendo loro
  *         di essere utilizzate in contesti diversi senza dover modificare il
- *         codice sorgente. Manutenibilità: Il codice diventa più chiaro e
+ *         codice sorgente. 
+ *         
+ *         Manutenibilità: 
+ *         Il codice diventa più chiaro e
  *         manutenibile poiché le dipendenze sono esplicitamente dichiarate e
  *         gestite al di fuori delle classi stesse.
  * 
